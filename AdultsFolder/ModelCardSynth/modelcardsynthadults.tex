@@ -1,0 +1,109 @@
+\documentclass[12pt, a4paper]{article}
+
+% PREAMBLE - all package imports go here
+\usepackage{mdframed}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{caption} % For \captionof
+\usepackage{ragged2e}
+
+% Other packages you might already be using
+\usepackage{graphicx}
+\usepackage{hyperref}
+% etc.
+
+% Begin the actual document
+\begin{document}
+
+% Your text and content goes here
+
+% Model card content
+% Define compact spacing
+\setlength{\parskip}{0.2em}
+\setlength{\itemsep}{0em}
+\setlength{\parsep}{0em}
+
+\begin{mdframed}[
+linewidth=1pt,
+skipabove=0.5em,
+skipbelow=0.5em,
+innerleftmargin=1em,
+innerrightmargin=1em,
+innertopmargin=1em,
+innerbottommargin=1em
+]
+\RaggedRight
+
+\noindent\textbf{Synthetic Methodology:} SMOTENC
+
+\begin{description}[leftmargin=2em, labelsep=0.5em, noitemsep]
+\item[script:] BinarySMOTENC.py
+\item[description:] Generated synthetic samples for minority class (income $\geq$ \$50K) using
+SMOTENC algorithm to address class imbalance in the UCI Adults dataset.
+\item[parameters:]
+$k\_neighbours \rightarrow 5$,
+$ratio\_limit \rightarrow 0.8$,
+$random\_state \rightarrow 43$,
+$categorical\_features \rightarrow [workclass, education, marital\_status,$
+$occupation, relationship, age, race]$
+\end{description}
+\vspace{-0.5em}
+
+\noindent\textbf{Privacy Evaluation:} Nearest Neighbor Distance Analysis
+
+\begin{description}[leftmargin=2em, labelsep=0.5em, noitemsep]
+\item[script:] synthetic\_data\_validation.py
+\item[privacy\_metrics:]
+$avg\_nn\_distance \rightarrow 0.208$,
+$min\_nn\_distance \rightarrow 0.102$,
+$privacy\_threshold \rightarrow 0.1$,
+$duplicate\_count \rightarrow 0$,
+$privacy\_status \rightarrow PASS$
+\end{description}
+\vspace{-0.5em}
+
+\noindent\textbf{Fidelity Evaluation:} Distribution Similarity Analysis
+
+\begin{description}[leftmargin=2em, labelsep=0.5em, noitemsep]
+\item[script:] BinaryDatasetValidation1.py
+\item[fidelity\_metrics:]
+$kl\_divergence\_max \rightarrow 0.0181$,
+$js\_divergence\_max \rightarrow 0.0039$,
+$tvd\_max \rightarrow 0.0405$,
+$coverage\_metric \rightarrow 82.36\%$,
+$avg\_emd \rightarrow 0.196$,
+$r4\_compliance \rightarrow PASS$
+\end{description}
+\vspace{-0.5em}
+
+\noindent\textbf{Bias Evaluation:} Subgroup Distribution Analysis
+
+\begin{description}[leftmargin=2em, labelsep=0.5em, noitemsep]
+\item[script:] fairness\_evaluation.py
+\item[relevant\_groups:] $\{race, sex, native\_country\}$
+\item[bias\_metrics:]
+$tvd\_race \rightarrow 0.0405$,
+$tvd\_sex \rightarrow 0.0116$,
+$tvd\_native\_country \rightarrow 0.0374$,
+$max\_allowed\_tvd \rightarrow 0.1$,
+$fairness\_status \rightarrow PASS$
+\end{description}
+\vspace{-0.5em}
+
+\noindent\textbf{General Info}
+
+\begin{description}[leftmargin=2em, labelsep=0.5em, noitemsep]
+\item[timestamp:] 2025-04-04T15:30:00Z
+\item[creator:] John Smith
+\item[original dataset:] uci\_adults\_income\_train
+\item[output datasets:] $\langle$ original\_train, augmented\_train, test\_set $\rangle$
+\end{description}
+
+\end{mdframed}
+
+\captionof{figure}{Synthetic Data Model Card}
+\label{fig:modelcardsynthexample}
+
+% More content can go here
+
+\end{document}

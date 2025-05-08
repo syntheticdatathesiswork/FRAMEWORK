@@ -1,0 +1,136 @@
+{
+    "data": {
+        "dataset_name": "Adult Dataset",
+        "features": [
+            "age",
+            "workclass",
+            "fnlwgt",
+            "education_num",
+            "marital_status",
+            "relationship",
+            "race",
+            "sex",
+            "capital_gain",
+            "capital_loss",
+            "hours_per_week",
+            "native_country"
+        ],
+        "train_test_split_ratio": 0.25,
+        "data_files": [
+            "original_trainSMOTENC.csv",
+            "augmented_trainSMOTENC.csv",
+            "test_setSMOTENC.csv"
+        ]
+    },
+    "reproducibility": {
+        "random_state": 43
+    },
+    "synthetic_generation": {
+        "method": "SMOTENC",
+        "augmentation_ratio": 0.8,
+        "augmentation_file": "SMOTENC.py",
+        "pipeline_name": "AdultsMarkdownSMOTENC.ipynb"
+    },
+    "validation": {
+        "validation_file": "BinaryDatasetValidation1.py",
+        "metrics": {
+            "continuous": {
+                "age": {
+                    "orig_mean": 0.42246841389760365,
+                    "orig_std": 0.779552908630616,
+                    "synth_mean": 0.40986328895335206,
+                    "synth_std": 0.7233881426172846,
+                    "ks_stat": 0.03133778158829738,
+                    "ks_p": 0.0033503045586893224
+                },
+                "fnlwgt": {
+                    "orig_mean": -0.010697302059183057,
+                    "orig_std": 0.9821196451279741,
+                    "synth_mean": -0.017450162772672383,
+                    "synth_std": 0.9070304660480304,
+                    "ks_stat": 0.02902028528816962,
+                    "ks_p": 0.008312483710350186
+                },
+                "education_num": {
+                    "orig_mean": 0.5883876020876051,
+                    "orig_std": 0.9346367921116628,
+                    "synth_mean": 0.5868824199942465,
+                    "synth_std": 0.9141171181352328,
+                    "ks_stat": 0.01919161175646936,
+                    "ks_p": 0.18068682511971634
+                },
+                "capital_gain": {
+                    "orig_mean": 0.37860739551289047,
+                    "orig_std": 1.9262500860618867,
+                    "synth_mean": 0.359043758170999,
+                    "synth_std": 1.9234990329170998,
+                    "ks_stat": 0.030439297286224444,
+                    "ks_p": 0.004804810439438089
+                },
+                "capital_loss": {
+                    "orig_mean": 0.24944328417382447,
+                    "orig_std": 1.4489094174146824,
+                    "synth_mean": 0.25693051605169925,
+                    "synth_std": 1.4499435377565342,
+                    "ks_stat": 0.013727895821650682,
+                    "ks_p": 0.5684125832330045
+                },
+                "hours_per_week": {
+                    "orig_mean": 0.4683188582977387,
+                    "orig_std": 0.8659024769227437,
+                    "synth_mean": 0.46234948484826327,
+                    "synth_std": 0.8123153417895681,
+                    "ks_stat": 0.07376663302432458,
+                    "ks_p": 8.819738447631107e-16
+                },
+                "race": {
+                    "orig_mean": 3.7931596091205213,
+                    "orig_std": 0.7050665297994188,
+                    "synth_mean": 3.9638754148583097,
+                    "synth_std": 0.2943739757268021,
+                    "ks_stat": 0.0690640970237384,
+                    "ks_p": 6.929458604114785e-14
+                },
+                "sex": {
+                    "orig_mean": 0.8572204125950055,
+                    "orig_std": 0.34987959287309456,
+                    "synth_mean": 0.8770742915496553,
+                    "synth_std": 0.3283728716753748,
+                    "ks_stat": 0.01985387895464992,
+                    "ks_p": 0.1527648880192616
+                },
+                "native_country": {
+                    "orig_mean": 36.581976112920735,
+                    "orig_std": 5.987987444269775,
+                    "synth_mean": 37.93413326525402,
+                    "synth_std": 1.13293671942535,
+                    "ks_stat": 0.06266946486685218,
+                    "ks_p": 1.6493057010421264e-11
+                }
+            },
+            "categorical": {
+                "income": {
+                    "orig_counts": {
+                        "1": 5526
+                    },
+                    "synth_counts": {
+                        "1": 7834
+                    },
+                    "chi2_stat": 0.0,
+                    "chi2_p": 1.0
+                }
+            },
+            "coverage": 0.8286283025696707,
+            "diversity": {
+                "avg_distance": 3.497516239315137,
+                "std_distance": 2.8303237455214787
+            },
+            "density": {
+                "density_threshold": 0.5,
+                "average_density": 27.85218279295379
+            },
+            "discriminative_score": 0.6342315369261478,
+            "mmd": 0.0013328369399498163
+        }
+    }
+}

@@ -1,0 +1,81 @@
+\documentclass[12pt, a4paper]{article}
+
+% Required packages
+\usepackage{mdframed}      % For the framed boxes
+\usepackage{enumitem}      % For enhanced description lists
+\usepackage{amsmath}       % For math symbols
+\usepackage{amssymb}       % For additional math symbols like \dom
+\usepackage{ragged2e}      % For \RaggedRight command
+
+% If you don't have a \dom command defined, add this:
+\DeclareMathOperator{\dom}{dom}
+
+% Document begins
+\begin{document}
+
+% Your template goes here
+\begin{mdframed}[
+linewidth=1pt,
+skipabove=0.5em,
+skipbelow=0.5em,
+innerleftmargin=1em,
+innerrightmargin=1em,
+innertopmargin=1em,
+innerbottommargin=1em
+]
+\RaggedRight
+
+\noindent\textbf{Synthetic Methodology:} METHOD
+
+\begin{description}[leftmargin=2em, labelsep=0.5em, noitemsep]
+\item[script:] SCRIPT
+\item[description:] DESCRIPTION
+\item[parameters:]
+$PARAM\_NAME \rightarrow PARAM\_VALUE$,
+$\dom(\mathrm{parameters})\neq\emptyset$
+\end{description}
+\vspace{-0.5em}
+
+\noindent\textbf{Privacy Evaluation:} METHOD
+
+\begin{description}[leftmargin=2em, labelsep=0.5em, noitemsep]
+\item[script:] SCRIPT
+\item[privacy\_metrics:]
+$PRIVACY\_METRIC\_NAME \rightarrow $ \\ $PRIVACY\_METRIC\_VALUE$,
+$\dom(\mathrm{privacy\_metrics})\neq\emptyset$
+\end{description}
+\vspace{-0.5em}
+
+\noindent\textbf{Fidelity Evaluation:} METHOD
+
+\begin{description}[leftmargin=2em, labelsep=0.5em, noitemsep]
+\item[script:] SCRIPT
+\item[fidelity\_metrics:]
+$FIDELITY\_METRIC\_NAME \rightarrow$ \\ $FIDELITY\_METRIC\_VALUE$
+\end{description}
+\vspace{-0.5em}
+
+\noindent\textbf{Bias Evaluation:} METHOD
+
+\begin{description}[leftmargin=2em, labelsep=0.5em, noitemsep]
+\item[script:] SCRIPT
+\item[relevant\_groups:] $\mathcal{P}(\mathrm{GROUP})$
+\item[bias\_metrics:]
+$BIAS\_METRIC\_NAME \rightarrow$ \\ $BIAS\_METRIC\_VALUE$
+\end{description}
+\vspace{-0.5em}
+
+\noindent\textbf{General Info}
+
+\begin{description}[leftmargin=2em, labelsep=0.5em, noitemsep]
+\item[timestamp:] TIMESTAMP
+\item[creator:] CREATOR
+\item[original dataset:] DATASET\_ID
+\item[output datasets:] ORIGINAL\_TRAIN, AUGMENTED\_TRAIN, TEST\_SET
+\end{description}
+
+\end{mdframed}
+
+% You can add more content or another mdframed environment here if needed
+
+\end{document}
